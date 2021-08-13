@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { auth } from '../fireauth/firebase';
 import { useHistory } from 'react-router';
-
+import { AuthContext } from '../context/AuthContext';
 const Chat = () => {
   const history = useHistory();
-
-  const handleLogout = () => {
-    auth.signOut();
+  const { user } = useContext(AuthContext);
+  const handleLogout = async () => {
+    await auth.signOut();
     history.push('/');
   };
 
@@ -20,7 +20,7 @@ const Chat = () => {
           </button>
         </div>
       </header>
-      <main></main>
+      <main>ChatEngine here</main>
     </>
   );
 };
