@@ -14,26 +14,63 @@ const Chat = () => {
     history.push('/');
   };
 
-  // api handling user
+  const getPhotofile = async (url) => {
+    const res = await fetch(url);
+    const data = await res.blob();
+    return new File([data], 'userPhoto.jpg', { type: 'image/jpeg' });
+  };
+
+  // // api handling user
+  // useEffect(() => {
+  //   if (!user) {
+  //     history.push('/');
+  //     return;
+  //   }
+  //   // get the user if user profile exists
+  //   axios
+  //     .get('https://api.chatengine.io/users/me', {
+  //       headers: {
+  //         'project-id': '97737ec9-d161-46c0-b3d3-eb567be2a080',
+  //         'user-name': user.email,
+  //         'user-secret': user.uid,
+  //       },
+  //     })
+  //     .then(() => {
+  //       setLoading(false);
+  //     })
+  //     .catch(() => {
+  //       let formdata = new FormData();
+  //       formdata.append('email', user.email);
+  //       formdata.append('username', user.email);
+  //       formdata.append('secret', user.uid);
+  //       getPhotofile(user.photoURL).then((ava) => {
+  //         formdata.append('avatar', ava, ava.name);
+  //         // if getting the image file was a success then creat user below
+  //         axios
+  //           .post('https://api.chatengine.io/users/', formdata, {
+  //             headers: {
+  //               'private-key': 'f8e7e582-fcea-4c2b-a531-96a1613a8e0f',
+  //             },
+  //           })
+  //           .then(() => {
+  //             setLoading(false);
+  //           })
+  //           .catch((err) => {
+  //             console.log(err);
+  //           });
+  //       });
+  //     });
+  // }, [user, history]);
+
+  // // when user logs in and the data is still loading show a message
+  // if (!user || loading) return 'loading...';
+
+  // api handling
   useEffect(() => {
     if (!user) {
       history.push('/');
-    } else {
-      // get the user if user profile exists
-      axios
-        .get('https://api.chatengine.io/users/me', {
-          headers: {
-            'project-id': '97737ec9-d161-46c0-b3d3-eb567be2a080',
-            'user-name': user.email,
-            'user-secret': user.uid,
-          },
-        })
-        .then(() => {
-          setLoading(false);
-        });
     }
-  });
-
+  }, [user, history]);
   return (
     <>
       <header>
@@ -48,8 +85,8 @@ const Chat = () => {
         <ChatEngine
           height='93vh'
           projectID='97737ec9-d161-46c0-b3d3-eb567be2a080'
-          userName='#'
-          userSecret='#'
+          userName={user.email}
+          userSecret={user.uid}
         />
       </main>
     </>
