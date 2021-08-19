@@ -1,6 +1,7 @@
 import React from 'react';
 import { auth } from '../fireauth/firebase';
 import firebase from 'firebase/app';
+import 'firebase/app';
 
 const Login = () => {
   const handleLoginGoogle = () => {
