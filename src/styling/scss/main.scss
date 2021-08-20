@@ -1,0 +1,8 @@
+@import './config';
+@import 'login';
+body {
+  background: linear-gradient(to right, $primary-color, $secondary-color) fixed;
+  color: get-text-color($text-color);
+  line-height: 1;
+  overflow: hidden;
+}

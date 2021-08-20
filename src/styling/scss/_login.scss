@@ -1,0 +1,11 @@
+@import './config';
+
+.login-page {
+  @include flex-center;
+  height: 100vh;
+
+  &-container {
+    background: $container-color;
+    padding: 2rem;
+  }
+}

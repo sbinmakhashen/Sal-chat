@@ -1,0 +1,23 @@
+$primary-color: #43cea2;
+$secondary-color: #185a9d;
+$text-color: #272727;
+$container-color: #ded9ee;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+@function get-text-color($color) {
+  @if (lightness($color) > 50) {
+    @return #000;
+  } @else {
+    @return #e0e0e0;
+  }
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,4 +1,4 @@
-import './App.css';
+import './styling/css/main.css';
 import Login from './components/Login';
 import { Switch, Route } from 'react-router-dom';
 import Chat from './components/Chat';
