@@ -13,9 +13,9 @@ const Login = () => {
   };
   return (
     <div className='login-page'>
-      <div className='login-container'>
-        <h1 className='login-title'>Login</h1>
-        <div className='login-btns'>
+      <div className='login-page-container'>
+        <h1 className='login-page-title'>Login</h1>
+        <div className='login-page-btns'>
           <button onClick={handleLoginGoogle} className='btn'>
             Sign in with Google
           </button>

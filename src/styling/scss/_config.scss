@@ -9,7 +9,7 @@ $container-color: #ded9ee;
 }
 
 @function get-text-color($color) {
-  @if (lightness($color) > 50) {
+  @if (lightness($color) > 15) {
     @return #000;
   } @else {
     @return #e0e0e0;
