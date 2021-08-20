@@ -2,6 +2,14 @@ $primary-color: #43cea2;
 $secondary-color: #185a9d;
 $text-color: #272727;
 $container-color: #ded9ee;
+$border-r: 2rem;
+$weights: (
+  'regular': 400,
+  'medium': 500,
+  'bold': 700,
+);
+$transition: all 0.4s ease-in-out;
+
 * {
   box-sizing: border-box;
   margin: 0;

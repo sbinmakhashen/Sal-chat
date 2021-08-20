@@ -7,7 +7,7 @@
   &-container {
     background: $container-color;
     padding: 2rem;
-    border-radius: 2rem;
+    border-radius: $border-r;
     width: 50%;
 
     .login-page-title {
@@ -21,5 +21,26 @@
   &-btns {
     @include flex-center;
     flex-direction: column;
+
+    .btn {
+      padding: 0.8rem 1.8rem;
+      border-radius: $border-r;
+      outline: none;
+      border: none;
+      margin: 1rem auto;
+      background: linear-gradient(to right, $primary-color, $secondary-color);
+      font-size: 1.4rem;
+      color: lighten($container-color, 60%);
+      font-weight: map-get($weights, medium);
+      cursor: pointer;
+      box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.3);
+      transition: $transition;
+      &:hover {
+        transform: translateY(-7px);
+      }
+      &:active {
+        transform: scale(0.95);
+      }
+    }
   }
 }

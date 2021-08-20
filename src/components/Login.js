@@ -2,7 +2,7 @@ import React from 'react';
 import { auth } from '../fireauth/firebase';
 import firebase from 'firebase/app';
 import 'firebase/app';
-
+import { FontAwesomeIcon } from '@fortawesome/fontawesome-free';
 const Login = () => {
   const handleLoginGoogle = () => {
     auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
@@ -19,6 +19,7 @@ const Login = () => {
           <button onClick={handleLoginGoogle} className='btn'>
             Sign in with Google
           </button>
+          <FontAwesomeIcon icon={} />
           <button onClick={handleLoginFacebook} className='btn'>
             Sign in with Facebook
           </button>
