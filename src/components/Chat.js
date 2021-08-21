@@ -57,7 +57,7 @@ const Chat = () => {
   return (
     <>
       <header>
-        <div className='logo'>Salchat</div>
+        <div className='logo'>SalChat</div>
         <div className='logout'>
           <button onClick={handleLogout} className='btn btn-close'>
             Logout
@@ -67,7 +67,7 @@ const Chat = () => {
       {user && (
         <main className='chat-container'>
           <ChatEngine
-            height='93vh'
+            height='calc(96vh - 10px)'
             projectID='97737ec9-d161-46c0-b3d3-eb567be2a080'
             userName={user.email}
             userSecret={user.uid}

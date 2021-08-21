@@ -1,0 +1,27 @@
+@import './config';
+
+header {
+  @include flex-center;
+  justify-content: space-between;
+  padding: 0 0.8rem;
+  background: linear-gradient(
+    to right,
+    lighten($text-color, 50%),
+    rgba(0, 0, 0, 0.5)
+  );
+  .logo {
+    @include logo;
+    font-size: 2.5rem;
+    transform: translateY(-10%);
+  }
+
+  .btn-close {
+    margin: 0.5rem auto;
+    padding: 0.2rem 1rem;
+    transform: translateY(-10%);
+
+    &:hover {
+      background: #8b0000;
+    }
+  }
+}
