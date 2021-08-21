@@ -8,6 +8,7 @@ $weights: (
   'medium': 500,
   'bold': 700,
 );
+$logo-color: #4b0082;
 $transition: all 0.4s ease-in-out;
 
 * {
@@ -28,4 +29,10 @@ $transition: all 0.4s ease-in-out;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@mixin logo {
+  font-weight: map-get($weights, bold);
+  font-family: 'Rampart One', cursive;
+  color: $logo-color;
 }

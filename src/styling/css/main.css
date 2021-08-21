@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Rampart+One&display=swap");
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -22,10 +23,59 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 100vh;
+  height: 90vh;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.login-page-header {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.login-page-header-logo {
+  font-size: 4.2rem;
+  font-weight: 700;
+  font-family: 'Rampart One', cursive;
+  color: #4b0082;
+}
+
+.login-page-header-headline {
+  font-size: 5rem;
+  font-family: fantasy;
+  color: #ded9ee;
+  margin-top: 3rem;
+  letter-spacing: 5px;
+  -webkit-animation: floatt 2s alternate ease-in-out infinite;
+          animation: floatt 2s alternate ease-in-out infinite;
+}
+
+@-webkit-keyframes floatt {
+  0% {
+    -webkit-transform: translateY(-2rem);
+            transform: translateY(-2rem);
+  }
+  100% {
+    -webkit-transform: translateY(2rem);
+            transform: translateY(2rem);
+  }
+}
+
+@keyframes floatt {
+  0% {
+    -webkit-transform: translateY(-2rem);
+            transform: translateY(-2rem);
+  }
+  100% {
+    -webkit-transform: translateY(2rem);
+            transform: translateY(2rem);
+  }
 }
 
 .login-page-container {
+  margin: auto;
   background: #ded9ee;
   padding: 2rem;
   border-radius: 2rem;
