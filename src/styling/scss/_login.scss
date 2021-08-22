@@ -8,9 +8,15 @@
   &-header {
     text-align: center;
     margin-top: 2rem;
+    cursor: default;
     &-logo {
       font-size: 4.2rem;
       @include logo;
+      cursor: default;
+      @include mobile {
+        font-size: 3rem;
+        margin-top: 1rem;
+      }
     }
 
     &-headline {
@@ -20,6 +26,13 @@
       margin-top: 3rem;
       letter-spacing: 5px;
       animation: floatt 2s alternate ease-in-out infinite;
+      @include mobile {
+        font-size: 3rem;
+        padding: 0 1rem;
+      }
+      @include s-mobile {
+        font-size: 2rem;
+      }
 
       @keyframes floatt {
         0% {
@@ -38,7 +51,12 @@
     padding: 2rem;
     border-radius: $border-r;
     width: 50%;
-
+    @include mobile {
+      width: 94%;
+    }
+    @include s-mobile {
+      margin-bottom: 1rem;
+    }
     .login-page-title {
       @include flex-center;
       margin-bottom: 2rem;
@@ -53,6 +71,9 @@
 
     .btn {
       padding: 0.8rem 1.8rem;
+      @include mobile {
+        font-size: 1rem;
+      }
     }
   }
 }

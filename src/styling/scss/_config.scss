@@ -10,6 +10,8 @@ $weights: (
 );
 $logo-color: #4b0082;
 $transition: all 0.4s ease-in-out;
+$mobile-width: 600px;
+$s-mobile-width: 400px;
 
 * {
   box-sizing: border-box;
@@ -35,4 +37,16 @@ $transition: all 0.4s ease-in-out;
   font-weight: map-get($weights, bold);
   font-family: 'Rampart One', cursive;
   color: $logo-color;
+}
+
+@mixin mobile {
+  @media (min-width: $s-mobile-width) and (max-width: $mobile-width) {
+    @content;
+  }
+}
+
+@mixin s-mobile {
+  @media (min-width: 100px) and (max-width: $s-mobile-width) {
+    @content;
+  }
 }

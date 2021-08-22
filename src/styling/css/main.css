@@ -33,6 +33,7 @@
 .login-page-header {
   text-align: center;
   margin-top: 2rem;
+  cursor: default;
 }
 
 .login-page-header-logo {
@@ -40,6 +41,14 @@
   font-weight: 700;
   font-family: 'Rampart One', cursive;
   color: #4b0082;
+  cursor: default;
+}
+
+@media (min-width: 400px) and (max-width: 600px) {
+  .login-page-header-logo {
+    font-size: 3rem;
+    margin-top: 1rem;
+  }
 }
 
 .login-page-header-headline {
@@ -50,6 +59,19 @@
   letter-spacing: 5px;
   -webkit-animation: floatt 2s alternate ease-in-out infinite;
           animation: floatt 2s alternate ease-in-out infinite;
+}
+
+@media (min-width: 400px) and (max-width: 600px) {
+  .login-page-header-headline {
+    font-size: 3rem;
+    padding: 0 1rem;
+  }
+}
+
+@media (min-width: 100px) and (max-width: 400px) {
+  .login-page-header-headline {
+    font-size: 2rem;
+  }
 }
 
 @-webkit-keyframes floatt {
@@ -80,6 +102,18 @@
   padding: 2rem;
   border-radius: 2rem;
   width: 50%;
+}
+
+@media (min-width: 400px) and (max-width: 600px) {
+  .login-page-container {
+    width: 94%;
+  }
+}
+
+@media (min-width: 100px) and (max-width: 400px) {
+  .login-page-container {
+    margin-bottom: 1rem;
+  }
 }
 
 .login-page-container .login-page-title {
@@ -117,6 +151,12 @@
   padding: 0.8rem 1.8rem;
 }
 
+@media (min-width: 400px) and (max-width: 600px) {
+  .login-page-btns .btn {
+    font-size: 1rem;
+  }
+}
+
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -149,6 +189,7 @@ header .logo {
   font-size: 2.5rem;
   -webkit-transform: translateY(-10%);
           transform: translateY(-10%);
+  cursor: default;
 }
 
 header .btn-close {

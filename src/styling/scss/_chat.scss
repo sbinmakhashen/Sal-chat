@@ -13,6 +13,7 @@ header {
     @include logo;
     font-size: 2.5rem;
     transform: translateY(-10%);
+    cursor: default;
   }
 
   .btn-close {
