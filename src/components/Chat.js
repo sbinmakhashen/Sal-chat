@@ -64,16 +64,17 @@ const Chat = () => {
           </button>
         </div>
       </header>
-      {user && (
-        <main className='chat-container'>
+      <main className='chat-container'>
+        {user && (
           <ChatEngine
+            className='chat-engine'
             height='calc(96vh - 10px)'
             projectID='97737ec9-d161-46c0-b3d3-eb567be2a080'
             userName={user.email}
             userSecret={user.uid}
           />
-        </main>
-      )}
+        )}
+      </main>
     </>
   );
 };

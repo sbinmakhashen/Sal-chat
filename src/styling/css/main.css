@@ -44,7 +44,7 @@
   cursor: default;
 }
 
-@media (min-width: 400px) and (max-width: 600px) {
+@media (max-width: 600px) {
   .login-page-header-logo {
     font-size: 3rem;
     margin-top: 1rem;
@@ -61,16 +61,11 @@
           animation: floatt 2s alternate ease-in-out infinite;
 }
 
-@media (min-width: 400px) and (max-width: 600px) {
+@media (max-width: 600px) {
   .login-page-header-headline {
-    font-size: 3rem;
+    font-size: 2.8rem;
     padding: 0 1rem;
-  }
-}
-
-@media (min-width: 100px) and (max-width: 400px) {
-  .login-page-header-headline {
-    font-size: 2rem;
+    margin-bottom: 1.2rem;
   }
 }
 
@@ -104,15 +99,9 @@
   width: 50%;
 }
 
-@media (min-width: 400px) and (max-width: 600px) {
+@media (max-width: 600px) {
   .login-page-container {
     width: 94%;
-  }
-}
-
-@media (min-width: 100px) and (max-width: 400px) {
-  .login-page-container {
-    margin-bottom: 1rem;
   }
 }
 
@@ -151,7 +140,7 @@
   padding: 0.8rem 1.8rem;
 }
 
-@media (min-width: 400px) and (max-width: 600px) {
+@media (max-width: 600px) {
   .login-page-btns .btn {
     font-size: 1rem;
   }

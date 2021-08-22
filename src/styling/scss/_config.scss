@@ -40,13 +40,7 @@ $s-mobile-width: 400px;
 }
 
 @mixin mobile {
-  @media (min-width: $s-mobile-width) and (max-width: $mobile-width) {
-    @content;
-  }
-}
-
-@mixin s-mobile {
-  @media (min-width: 100px) and (max-width: $s-mobile-width) {
+  @media (max-width: $mobile-width) {
     @content;
   }
 }

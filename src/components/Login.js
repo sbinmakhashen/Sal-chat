@@ -14,6 +14,11 @@ const Login = () => {
   const handleLoginFacebook = () => {
     auth.signInWithPopup(new firebase.auth.FacebookAuthProvider());
   };
+
+  const handleLoginGithub = () => {
+    auth.signInWithPopup(new firebase.auth.GithubAuthProvider());
+  };
+
   return (
     <>
       <div className='login-page'>
@@ -33,6 +38,10 @@ const Login = () => {
             <button onClick={handleLoginFacebook} className='btn'>
               <FontAwesomeIcon icon={['fab', 'facebook']} /> Sign in with
               Facebook
+            </button>
+
+            <button onClick={handleLoginGithub} className='btn'>
+              <FontAwesomeIcon icon={['fab', 'github']} /> Sign in with Github
             </button>
           </div>
         </div>
