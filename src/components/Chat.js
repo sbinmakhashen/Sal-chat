@@ -6,23 +6,24 @@ import { ChatEngine } from 'react-chat-engine';
 import axios from 'axios';
 
 const Chat = () => {
-  const { user } = useContext(AuthContext);
+  const { user, githubUsername } = useContext(AuthContext);
   const history = useHistory();
   const [loading, setLoading] = useState(true);
-
   const handleLogout = async () => {
     await auth.signOut();
     history.push('/');
   };
+
   useEffect(() => {
     if (!user) return history.push('/');
     // api handling
     // get the user if user has chat engine profile
+    console.log(user.additionalUserInfo);
     axios
       .get('https://api.chatengine.io/users/me', {
         headers: {
           'project-id': '97737ec9-d161-46c0-b3d3-eb567be2a080',
-          'user-name': user.email,
+          'user-name': user.email || user.displayName,
           'user-secret': user.uid,
         },
       })
@@ -33,10 +34,9 @@ const Chat = () => {
       .catch(() => {
         // if new user does not have a chat engine profile then create one
         let formdata = new FormData();
-        formdata.append('username', user.email);
+        formdata.append('username', user.email || user.displayName);
         formdata.append('email', user.email);
         formdata.append('secret', user.uid);
-        console.log(formdata);
         // create user profile
         axios
           .post('https://api.chatengine.io/users/', formdata, {
@@ -44,7 +44,7 @@ const Chat = () => {
               'private-key': 'f8e7e582-fcea-4c2b-a531-96a1613a8e0f',
             },
           })
-          .then(() => {
+          .then((res) => {
             setLoading(false);
           })
           .catch((err) => {
@@ -52,8 +52,7 @@ const Chat = () => {
           });
       });
   }, [user, history]);
-
-  if (!user || loading) return 'Loading...';
+  // if (!user || loading) return 'Loading...';
   return (
     <>
       <header>

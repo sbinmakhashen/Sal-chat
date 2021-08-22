@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { auth } from '../fireauth/firebase';
 import firebase from 'firebase/app';
 import 'firebase/app';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { fab } from '@fortawesome/free-brands-svg-icons';
+import { AuthContext } from '../context/AuthContext';
 library.add(fab);
 const Login = () => {
+  const { handleLoginGithub } = useContext(AuthContext);
   const handleLoginGoogle = () => {
     auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
   };
@@ -15,9 +17,16 @@ const Login = () => {
     auth.signInWithPopup(new firebase.auth.FacebookAuthProvider());
   };
 
-  const handleLoginGithub = () => {
-    auth.signInWithPopup(new firebase.auth.GithubAuthProvider());
-  };
+  // const handleLoginGithub = () => {
+  //   auth
+  //     .signInWithPopup(new firebase.auth.GithubAuthProvider())
+  //     .then((res) => {
+  //       const gihubUsername = res.additionalUserInfo.profile.login;
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
 
   return (
     <>

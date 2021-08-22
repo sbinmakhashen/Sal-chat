@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import { auth } from '../fireauth/firebase';
-
+import firebase from 'firebase/app';
+import axios from 'axios';
 const AuthContext = React.createContext();
 const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
@@ -17,8 +18,21 @@ const AuthProvider = ({ children }) => {
       }
     });
   }, [user, history]);
+  var githubUsername = {};
+  const handleLoginGithub = () => {
+    auth
+      .signInWithPopup(new firebase.auth.GithubAuthProvider())
+      .then((res) => {
+        githubUsername = res.additionalUserInfo.profile;
+        // console.log(res.additionalUserInfo.profile);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
-  const value = { user };
+  console.log(githubUsername);
+  const value = { user, handleLoginGithub, githubUsername };
 
   return (
     <AuthContext.Provider value={value}>
