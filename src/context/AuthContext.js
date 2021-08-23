@@ -1,11 +1,11 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { auth } from '../fireauth/firebase';
 import firebase from 'firebase/app';
-import axios from 'axios';
 const AuthContext = React.createContext();
 const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
+  const [githubUsername, setGithubUsername] = useState();
   const [user, setUser] = useState(null);
   const history = useHistory();
 
@@ -18,20 +18,17 @@ const AuthProvider = ({ children }) => {
       }
     });
   }, [user, history]);
-  var githubUsername = {};
   const handleLoginGithub = () => {
     auth
       .signInWithPopup(new firebase.auth.GithubAuthProvider())
       .then((res) => {
-        githubUsername = res.additionalUserInfo.profile;
-        // console.log(res.additionalUserInfo.profile);
+        setGithubUsername(res.additionalUserInfo.username);
       })
       .catch((err) => {
         console.log(err);
       });
   };
 
-  console.log(githubUsername);
   const value = { user, handleLoginGithub, githubUsername };
 
   return (

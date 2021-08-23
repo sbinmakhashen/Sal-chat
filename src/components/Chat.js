@@ -23,7 +23,7 @@ const Chat = () => {
       .get('https://api.chatengine.io/users/me', {
         headers: {
           'project-id': '97737ec9-d161-46c0-b3d3-eb567be2a080',
-          'user-name': user.email || user.displayName,
+          'user-name': user.email || githubUsername,
           'user-secret': user.uid,
         },
       })
@@ -34,7 +34,7 @@ const Chat = () => {
       .catch(() => {
         // if new user does not have a chat engine profile then create one
         let formdata = new FormData();
-        formdata.append('username', user.email || user.displayName);
+        formdata.append('username', user.email || githubUsername);
         formdata.append('email', user.email);
         formdata.append('secret', user.uid);
         // create user profile
@@ -51,7 +51,7 @@ const Chat = () => {
             console.log(err);
           });
       });
-  }, [user, history]);
+  }, [user, history, githubUsername]);
   // if (!user || loading) return 'Loading...';
   return (
     <>
@@ -69,7 +69,7 @@ const Chat = () => {
             className='chat-engine'
             height='calc(96vh - 10px)'
             projectID='97737ec9-d161-46c0-b3d3-eb567be2a080'
-            userName={user.email}
+            userName={user.email || githubUsername}
             userSecret={user.uid}
           />
         )}
