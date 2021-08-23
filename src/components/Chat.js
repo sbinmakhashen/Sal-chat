@@ -13,7 +13,6 @@ const Chat = () => {
     await auth.signOut();
     history.push('/');
   };
-
   useEffect(() => {
     if (!user) return history.push('/');
     // api handling
@@ -22,7 +21,7 @@ const Chat = () => {
     axios
       .get('https://api.chatengine.io/users/me', {
         headers: {
-          'project-id': '97737ec9-d161-46c0-b3d3-eb567be2a080',
+          'project-id': process.env.REACT_APP_CHAT_ENGINE_ID,
           'user-name': user.email || githubUsername,
           'user-secret': user.uid,
         },
@@ -41,7 +40,7 @@ const Chat = () => {
         axios
           .post('https://api.chatengine.io/users/', formdata, {
             headers: {
-              'private-key': 'f8e7e582-fcea-4c2b-a531-96a1613a8e0f',
+              'private-key': process.env.REACT_APP_CHAT_ENGINE_PRIVATE_KEY,
             },
           })
           .then((res) => {
@@ -68,8 +67,8 @@ const Chat = () => {
           <ChatEngine
             className='chat-engine'
             height='calc(96vh - 10px)'
-            projectID='97737ec9-d161-46c0-b3d3-eb567be2a080'
-            userName={user.email || githubUsername}
+            projectID={process.env.REACT_APP_CHAT_ENGINE_ID}
+            userName={user.email}
             userSecret={user.uid}
           />
         )}

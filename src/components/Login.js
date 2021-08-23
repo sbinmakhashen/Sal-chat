@@ -17,17 +17,6 @@ const Login = () => {
     auth.signInWithPopup(new firebase.auth.FacebookAuthProvider());
   };
 
-  // const handleLoginGithub = () => {
-  //   auth
-  //     .signInWithPopup(new firebase.auth.GithubAuthProvider())
-  //     .then((res) => {
-  //       const gihubUsername = res.additionalUserInfo.profile.login;
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // };
-
   return (
     <>
       <div className='login-page'>
