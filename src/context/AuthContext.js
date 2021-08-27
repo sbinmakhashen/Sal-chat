@@ -18,6 +18,7 @@ const AuthProvider = ({ children }) => {
       }
     });
   }, [user, history]);
+
   const handleLoginGithub = () => {
     auth
       .signInWithPopup(new firebase.auth.GithubAuthProvider())

@@ -14,7 +14,14 @@ const Login = () => {
   };
 
   const handleLoginFacebook = () => {
-    auth.signInWithPopup(new firebase.auth.FacebookAuthProvider());
+    auth
+      .signInWithPopup(new firebase.auth.FacebookAuthProvider())
+      .then((res) => {
+        console.log(res.additionalUserInfo);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (

@@ -17,7 +17,7 @@ const Chat = () => {
     if (!user) return history.push('/');
     // api handling
     // get the user if user has chat engine profile
-    console.log(user.additionalUserInfo);
+    console.log(user);
     axios
       .get('https://api.chatengine.io/users/me', {
         headers: {
@@ -55,20 +55,20 @@ const Chat = () => {
   return (
     <>
       <header>
-        <div className='logo'>SalChat</div>
-        <div className='logout'>
-          <button onClick={handleLogout} className='btn btn-close'>
+        <div className="logo">SalChat</div>
+        <div className="logout">
+          <button onClick={handleLogout} className="btn btn-close">
             Logout
           </button>
         </div>
       </header>
-      <main className='chat-container'>
+      <main className="chat-container">
         {user && (
           <ChatEngine
-            className='chat-engine'
-            height='calc(96vh - 10px)'
+            className="chat-engine"
+            height="calc(96vh - 10px)"
             projectID={process.env.REACT_APP_CHAT_ENGINE_ID}
-            userName={user.email}
+            userName={user.email || githubUsername}
             userSecret={user.uid}
           />
         )}
