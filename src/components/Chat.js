@@ -6,7 +6,7 @@ import { ChatEngine } from 'react-chat-engine';
 import axios from 'axios';
 
 const Chat = () => {
-  const { user, githubUsername } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const history = useHistory();
   const [loading, setLoading] = useState(true);
   const handleLogout = async () => {
@@ -22,18 +22,19 @@ const Chat = () => {
       .get('https://api.chatengine.io/users/me', {
         headers: {
           'project-id': process.env.REACT_APP_CHAT_ENGINE_ID,
-          'user-name': user.email || githubUsername,
+          'user-name': user.email,
           'user-secret': user.uid,
         },
       })
       .then(() => {
+        console.log(user);
         // if data is received then stop loading to show results
         setLoading(false);
       })
       .catch(() => {
         // if new user does not have a chat engine profile then create one
         let formdata = new FormData();
-        formdata.append('username', user.email || githubUsername);
+        formdata.append('username', user.email);
         formdata.append('email', user.email);
         formdata.append('secret', user.uid);
         // create user profile
@@ -45,12 +46,13 @@ const Chat = () => {
           })
           .then((res) => {
             setLoading(false);
+            console.log(user);
           })
           .catch((err) => {
             console.log(err);
           });
       });
-  }, [user, history, githubUsername]);
+  }, [user, history]);
   // if (!user || loading) return 'Loading...';
   return (
     <>
@@ -68,7 +70,7 @@ const Chat = () => {
             className="chat-engine"
             height="calc(96vh - 10px)"
             projectID={process.env.REACT_APP_CHAT_ENGINE_ID}
-            userName={user.email || githubUsername}
+            userName={user.email}
             userSecret={user.uid}
           />
         )}

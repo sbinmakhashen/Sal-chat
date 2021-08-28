@@ -21,9 +21,9 @@ const AuthProvider = ({ children }) => {
 
   const handleLoginGithub = () => {
     auth
-      .signInWithPopup(new firebase.auth.GithubAuthProvider())
+      .signInWithPopup(new firebase.auth.TwitterAuthProvider())
       .then((res) => {
-        setGithubUsername(res.additionalUserInfo.username);
+        setGithubUsername(res);
       })
       .catch((err) => {
         console.log(err);
