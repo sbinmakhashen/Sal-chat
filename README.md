@@ -2,4 +2,4 @@
 
 ---
 
-### Please navigate to [here](https://github.com/sbinmakhashen/Sal-chat) to preview `SalChat`
+### Please navigate to [here](https://salchat.netlify.app/) to preview `SalChat`
