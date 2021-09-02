@@ -1,6 +1,6 @@
 import './styling/css/main.css';
 import { Switch, Route } from 'react-router-dom';
-import Login from './components/Login';
+import Login from './Pages/Login';
 import Chat from './components/Chat';
 function App() {
   return (
